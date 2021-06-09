@@ -1,23 +1,27 @@
-/* ORIGINAL CODE SINGLY LINKED LIST */
+/*  CODE of SINGLY LINKED LIST */
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
 
-int loc;//global variable..
+int loc;    //global variable..
 struct node
 {
     int info;
     struct node *link;
 };
 struct node *START=NULL;
-//creating Node
+
+   //creating Node
 struct node* createNode()
 {
     struct node* n;
     n=(struct node*)malloc(sizeof(struct node));
     return(n);
 };
+
+
 //To find length of linked list..
+
 int findlength()
 {
     int count=0;
@@ -31,7 +35,9 @@ int findlength()
       return count;
 
 }
-void AddAtBeginning() //inserting at beginning
+
+    //inserting at beginning
+void AddAtBeginning()      
 {
     struct node *temp;
     temp=createNode();
@@ -42,8 +48,8 @@ void AddAtBeginning() //inserting at beginning
         START=temp;
     else
     {
-        temp->link=START;/*right side connection*/
-        START=temp;/*left side connection*/
+        temp->link=START;   /*right side connection*/
+        START=temp;         /*left side connection*/
     }
 }
 void insertatEnd() /*Add at End*/
@@ -178,9 +184,9 @@ void createlist()
     while(data!=-1)
     {
         struct node *n=createNode();
-        
+
         n->info=data;
-        
+
         if(START==NULL)
        {
         n->link=NULL;
