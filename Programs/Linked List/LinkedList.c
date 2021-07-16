@@ -210,7 +210,7 @@ void createlist()
     }
 }
 
-void main()
+int main()
 {
     struct node *temp;
     createlist();
@@ -263,5 +263,6 @@ void main()
         }
 
     }
+    return 0;
 }
 

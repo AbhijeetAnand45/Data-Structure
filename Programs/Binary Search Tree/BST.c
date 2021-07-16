@@ -23,18 +23,13 @@ struct BSTNode *createnode(int data)
 
       /* INSERT OPERATION */
 
-struct BSTNode *insert(struct BSTNode *root,int data)
-{
-    
+struct BSTNode *insert(struct BSTNode *root,int data){
     struct BSTNode *n=createnode(data);
-    if(root==NULL)
-    {
+    if(root==NULL){
         root=n;
     }
-    else if(root->data>data)
-    {
+    else if(root->data>data){
         root->left=insert(root->left,data);
-
     }
     else{
         root->right=insert(root->right,data);
@@ -44,8 +39,7 @@ struct BSTNode *insert(struct BSTNode *root,int data)
 
      /* OPERATION TO FIND MINIMUM ELEMENT IN RIGHT SUBTREE */
      
-struct BSTNode* findmin(struct BSTNode * root)
-{
+struct BSTNode* findmin(struct BSTNode * root){
     while(root->left!=NULL)
         root=root->left;
     return root;
@@ -53,8 +47,7 @@ struct BSTNode* findmin(struct BSTNode * root)
 
     /* SEARCH OPERATION */
 
-struct BSTNode *find(struct BSTNode *root,int data)
-{
+struct BSTNode *find(struct BSTNode *root,int data){
     if(root==NULL)
         return(NULL);
     else if(data < root->data)
@@ -62,7 +55,6 @@ struct BSTNode *find(struct BSTNode *root,int data)
     else if(data > root->data)
         return(find(root->right,data));
     return root;
-
 } 
      /* DELETION OPERATION */
 struct BSTNode *deleteNode(struct BSTNode * root, int data)
@@ -74,25 +66,18 @@ struct BSTNode *deleteNode(struct BSTNode * root, int data)
         root->left=deleteNode(root->left,data);
     else if(data > root->data)
         root->right= deleteNode(root->right,data);
-    else
-    {
-        
-         if(root->left==NULL)
-        {
+    else{
+         if(root->left==NULL){
             temp=root;
             root=temp->right;
             free(temp);
-
         }
-        else if(root->right==NULL)
-        {
+        else if(root->right==NULL){
             temp=root;
             root=temp->left;
             free(temp);
-
         }
-        else
-        {
+        else{
             temp=findmin(root->right);
             root->data=temp->data;
             root->right=deleteNode(root->right,temp->data);
@@ -103,30 +88,23 @@ struct BSTNode *deleteNode(struct BSTNode * root, int data)
 
     /* TREE TRAVERSAL */
     
-void inorder(struct BSTNode *root)
-{
-    if(root!=NULL)
-    {
+void inorder(struct BSTNode *root){
+    if(root!=NULL){
         inorder(root->left);
         printf("%d ",root->data);
 
         inorder(root->right);
     }
 }
-void preorder(struct BSTNode *root)
-{
-    if(root!=NULL)
-    {
+void preorder(struct BSTNode *root){
+    if(root!=NULL){
         printf("%d ",root->data);
         preorder(root->left);
         preorder(root->right);
     }
 }
-void postorder(struct BSTNode *root)
-{
-    if(root!=NULL)
-    {
-
+void postorder(struct BSTNode *root){
+    if(root!=NULL){
         postorder(root->left);
         postorder(root->right);
         printf("%d ",root->data);
@@ -137,7 +115,6 @@ void postorder(struct BSTNode *root)
 
 int main()
 {
-   
     struct BSTNode *temp; 
     struct BSTNode *root = NULL;
     int ch,data,item,x,z;
@@ -147,12 +124,10 @@ int main()
     scanf("%d",&n);
     printf("\nPlease enter the data in the tree: ");
     
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++){
         scanf("%d",&z);
         root=insert(root, z);
     }
-    
     while(1)
     {
         printf("\n1. To Insert");
@@ -192,8 +167,7 @@ int main()
                 printf("\nPLEASE ENTER THE ELEMENT TO SEARCH: ");
                 scanf("%d",&x);
                 temp=find(root,x);
-                if(temp==NULL)
-                {
+                if(temp==NULL){
                     printf("\n%d is Not found in the tree",x);
                 }
                 else{
@@ -205,8 +179,6 @@ int main()
                 exit(1);
             default:
                 printf("\nInvalid input please enter a valid input");
-                
-
         }
     }
 }

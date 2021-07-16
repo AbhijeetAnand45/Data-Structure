@@ -145,8 +145,6 @@ bool searching(node *head,int key){
 
 }
 
-
-
 // MAIN FUNCTION
 
 int main()
