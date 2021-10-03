@@ -4,7 +4,7 @@
 
 # Contributing Guidelines
 
-Before moving ahead with making contributions please make sure that you have read the code of conduct mentioned in the [CODE_OF_CONDUCT.md](https://github.com/aabhijeet011/Data-Structure/CODE_OF_CONDUCT.md) file. 
+Before moving ahead with making contributions please make sure that you have read the code of conduct mentioned in the [CODE_OF_CONDUCT.md](https://github.com/aabhijeet011/Data-Structure/blob/master/CODE_OF_CONDUCT.md) file. 
 <br>
 
 ### Prerequisites
