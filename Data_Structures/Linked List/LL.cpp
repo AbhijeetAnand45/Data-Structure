@@ -28,7 +28,6 @@ void InsertAtHead(node* &head,int val)
     head = n;
 }
 
-
    // Insertion of Node at End of list
 
 void InsertAttail(node* &head, int val)
@@ -47,7 +46,6 @@ void InsertAttail(node* &head, int val)
     temp->next = n;
 }
 
-
 // Delete First Node of the Linked List
 
 void deletefirstNode(node* &head)
@@ -56,7 +54,6 @@ void deletefirstNode(node* &head)
     head = head->next;
     delete todelete;
 }
-
 
  // Delete any Particular node with given Value
 
@@ -80,7 +77,6 @@ void deletion(node* &head, int val)
     delete todelete;
 }
 
-
 // Function to delete nth node from the End of Linked List
 
 node* removeNthFromEnd(node* head, int n) {
@@ -98,7 +94,6 @@ node* removeNthFromEnd(node* head, int n) {
         slow->next = slow->next->next;
         return head;
 }
-
 
 // Function to reverse the linked list
 
@@ -129,7 +124,6 @@ void display(node* head)
     cout<<"NULL"<<endl;
 }
 
-
 // Search For an Element in the linked List
 
 bool searching(node *head,int key){
@@ -145,22 +139,54 @@ bool searching(node *head,int key){
 
 }
 
+// code for sorting a linked list
+// 4->2->1->3
+// 1->2->3->4
+ node* sortList(node* head) {
+        if(head == NULL){
+            return NULL;
+        }
+        node* temp = head;
+        vector<int> ans;
+        while(temp != NULL){
+            ans.push_back(temp->data);
+            temp = temp->next;
+        }
+        for(int i=0;i<ans.size();i++){
+            cout<<ans[i]<<" ";
+        }
+        sort(ans.begin(),ans.end());
+        cout<<"\n";
+        for(int i=0;i<ans.size();i++){
+            cout<<ans[i]<<" ";
+        }
+        node* newHead = new node(ans[0]);
+        node* finl = newHead;
+        for(int i=1;i<ans.size();i++){
+            finl->next = new node(ans[i]);
+            finl = finl->next;
+        }
+        return newHead;
+    }
+
 // MAIN FUNCTION
 
 int main()
 {
     node* head = NULL;
+    InsertAttail(head,4);
+    InsertAttail(head,2);
     InsertAttail(head,1);
-    InsertAttail(head,5);
     InsertAttail(head,3);
     display(head);
-
-    InsertAtHead(head,7);
-    display(head);
-    cout<<searching(head,4);
+    node* ans = sortList(head);
+    display(ans);
+    // InsertAtHead(head,7);
+    // display(head);
+    // cout<<searching(head,4);
     cout<<endl;
-    node* newhead = reverselist(head);
-    display(newhead);
+    // node* newhead = reverselist(head);
+    // display(newhead);
    /* deletion(head,3);
     display(head);
     deletefirstNode(head);

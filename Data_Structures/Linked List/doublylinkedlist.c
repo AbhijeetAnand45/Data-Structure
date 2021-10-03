@@ -3,10 +3,11 @@
   EXPERIMENT/LAB : 6
   DATE : 05/10/2020 */
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<stdbool.h>
-#include<math.h>
+// #include<stdio.h>
+// #include<stdlib.h>
+// #include<stdbool.h>
+// #include<math.h>
+#include<bits/stdc++.h>
 
     /* STRUCTURE OF DOUBLY LINKED LIST */
 
@@ -258,7 +259,30 @@ void createlist()
         temp->next=NULL;
     }
 
-    }
+}
+
+void reverseDLL(struct Node *head){
+        stack<int> st;
+        struct Node* temp = head;
+        while (temp != NULL) {
+            st.push(temp->data);
+            temp = temp->next;
+        }
+ 
+        // added all the elements sequence wise in the
+        // st
+        temp = head;
+        while (temp != NULL) {
+            temp->data = st.top();
+            st.pop();
+            temp = temp->next;
+        }
+ 
+        // popped all the elements and the added in the
+        // linked list,
+        // which are in the reversed order->
+    
+}
 
   /* MAIN FUNCTION */
 
